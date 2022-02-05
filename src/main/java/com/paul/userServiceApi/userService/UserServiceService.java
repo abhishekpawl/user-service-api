@@ -29,4 +29,18 @@ public class UserServiceService {
 
         userServiceRepository.save(userService);
     }
+
+    public void deleteUser(Long userId) {
+        boolean userExists = userServiceRepository.existsById(userId);
+
+        if(!userExists) {
+            throw new IllegalStateException("User with id: " + userId + " does not exist!");
+        }
+
+        Optional<UserService> byId = userServiceRepository.findById(userId);
+
+        System.out.println(byId);
+
+        userServiceRepository.deleteById(userId);
+    }
 }
