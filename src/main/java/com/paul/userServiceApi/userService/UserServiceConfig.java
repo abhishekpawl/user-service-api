@@ -19,16 +19,14 @@ public class UserServiceConfig {
                     "Abhishek Paul",
                     "personal",
                     "abhishek.paulcp.dbs@gmail.com",
-                    LocalDate.of(2000, DECEMBER, 5),
-                    21
+                    LocalDate.of(2000, DECEMBER, 5)
             );
 
             UserService userService2 = new UserService(
                     "Abhishek Paul",
                     "personal",
                     "abhishekpaul512.2@gmail.com",
-                    LocalDate.of(2000, DECEMBER, 5),
-                    21
+                    LocalDate.of(2000, DECEMBER, 5)
             );
 
             repository.saveAll(

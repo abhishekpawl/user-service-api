@@ -2,6 +2,7 @@ package com.paul.userServiceApi.userService;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.Period;
 
 @Entity
 @Table
@@ -22,26 +23,25 @@ public class UserService {
     private String profile;
     private String email;
     private LocalDate dob;
+    @Transient
     private Integer age;
 
     public UserService() {
     }
 
-    public UserService(Long id, String name, String profile, String email, LocalDate dob, Integer age) {
+    public UserService(Long id, String name, String profile, String email, LocalDate dob) {
         this.id = id;
         this.name = name;
         this.profile = profile;
         this.email = email;
         this.dob = dob;
-        this.age = age;
     }
 
-    public UserService(String name, String profile, String email, LocalDate dob, Integer age) {
+    public UserService(String name, String profile, String email, LocalDate dob) {
         this.name = name;
         this.profile = profile;
         this.email = email;
         this.dob = dob;
-        this.age = age;
     }
 
     public Long getId() {
@@ -85,7 +85,7 @@ public class UserService {
     }
 
     public Integer getAge() {
-        return age;
+        return Period.between(this.dob, LocalDate.now()).getYears();
     }
 
     public void setAge(Integer age) {
