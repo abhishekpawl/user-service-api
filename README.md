@@ -1,6 +1,8 @@
 # user-service-api
 A basic API service to get started with Spring Boot framework.
 
+Configure the database, user and password for database in [application.properties](https://github.com/abhishekpawl/user-service-api/blob/main/src/main/resources/application.properties).
+
 1. In the project directory, to validate, compile, test, package, verify and generate the jar file, run
   ```
   mvn install
