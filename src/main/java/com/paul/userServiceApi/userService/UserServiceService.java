@@ -84,4 +84,9 @@ public class UserServiceService {
             userService.setEmail(email);
         }
     }
+
+    // get one user
+    public Optional<UserService> getUserById(Long userId) {
+        return userServiceRepository.findById(userId);
+    }
 }

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "api/v1/users")
@@ -19,6 +20,11 @@ public class UserServiceController {
     @GetMapping
     public List<UserService> getUsers() {
         return userServiceService.getUsers();
+    }
+
+    @GetMapping(path = "{userId}")
+    public Optional<UserService> getUserById(@PathVariable("userId") Long userId) {
+        return userServiceService.getUserById(userId);
     }
 
     @PostMapping
