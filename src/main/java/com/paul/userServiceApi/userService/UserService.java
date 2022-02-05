@@ -1,8 +1,22 @@
 package com.paul.userServiceApi.userService;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
+@Entity
+@Table
 public class UserService {
+
+    @Id
+    @SequenceGenerator(
+            name = "userservice_sequence",
+            sequenceName = "userservice_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "userservice_sequence"
+    )
     private Long id;
     private String name;
     private String profile;
