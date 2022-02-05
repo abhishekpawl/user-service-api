@@ -30,4 +30,14 @@ public class UserServiceController {
     public void deleteUser(@PathVariable("userId") Long userId) {
         userServiceService.deleteUser(userId);
     }
+
+    @PutMapping(path = "{userId}")
+    public void updateUser(
+            @PathVariable("userId") Long userId,
+            @RequestParam(required = false) String name,
+            @RequestParam(required = false) String profile,
+            @RequestParam(required = false) String email
+    ) {
+        userServiceService.updateUser(userId, name, profile, email);
+    }
 }
